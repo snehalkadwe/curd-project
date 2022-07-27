@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th width="200px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>            
+            <tr>
+                <th scope="row"><%= product.id %></th>
+                <td><%= product.pname %></td>
+                <td><%= product.price %></td>
+                <td>
+                    <a class="btn btn-success edit" href="<%= `/products/edit/${product.id}` %>">Edit</a>                       
+                    <a class="btn btn-danger delete" onclick="return alert('Are You sure?')" href="<%= `/products/delete/${product.id}` %>">Delete</a>                       
+                </td>
+            </tr> 
+            <% }) %>
+        </tbody>
+    </table>
+</div>  
+<%- include('../partials/footer') %>
